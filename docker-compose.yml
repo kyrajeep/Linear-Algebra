@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: linear-algebra-app
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mount your source code as a volume for live reload during development
+      - .:/app
+      # Exclude node_modules from being overwritten on your host machine
+      - /app/node_modules
+    working_dir: /app
+    command: npm run dev
+    stdin_open: true
+    tty: true
+    environment:
+      - NODE_ENV=development

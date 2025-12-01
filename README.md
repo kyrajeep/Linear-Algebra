@@ -23,23 +23,50 @@ linear-algebra/
 
 ## TypeScript App: Setup & Development
 
-### Install Dependencies
+### Quick Start (Docker)
+
+If you have Docker installed, this is the easiest way:
+
+```bash
+cd /Users/kyra/Github/Linear-Algebra
+docker-compose up
+```
+
+This automatically:
+- Downloads Node.js 24 Alpine image
+- Installs all dependencies (npm, React, TypeScript, etc.)
+- Starts dev server at `http://localhost:3000`
+- Enables hot-reload (changes appear instantly)
+
+See `DOCKER.md` and `DOCKER-CHEATSHEET.md` for more Docker commands.
+
+### Local Setup (Without Docker)
+
+If you prefer local npm:
 
 ```bash
 npm install
+npm run dev
 ```
+
+Requires Node.js ≥16 installed locally.
 
 ### Run Tests
 
 ```bash
-# Run tests in watch mode
+# Watch mode
+docker-compose run app npm test
+
+# Run once
+docker-compose run app npm run test:run
+
+# Interactive UI
+docker-compose run app npm run test:ui
+```
+
+Or locally:
+```bash
 npm test
-
-# Run tests once and exit
-npm run test:run
-
-# Run tests with UI
-npm run test:ui
 ```
 
 ### Project Overview
