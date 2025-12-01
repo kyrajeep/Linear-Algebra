@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MatrixCanvas from '../components/MatrixCanvas';
 
 function MatrixLesson() {
-  const [matrix, setMatrix] = useState([
+  const [matrix, setMatrix] = useState<[[number, number], [number, number]]>([
     [1, 0],
     [0, 1],
   ]); // identity
@@ -23,7 +23,7 @@ function MatrixLesson() {
   return (
     <div className="lesson-page">
       <Link to="/">
-        <button clas        ➜  Local:   http://localhost:3000/sName="back-button">← Back to Home</button>
+        <button className="back-button">← Back to Home</button>
       </Link>
 
       <div className="lesson-header">
